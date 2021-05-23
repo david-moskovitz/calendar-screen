@@ -1,0 +1,24 @@
+{% extends 'luach/base.html' %}
+{% load static %}
+{% block content %}
+<div class="jumbotron " style="padding-top:100px;">
+    <a class="btn btn-primary" href="{% url 'import_images' %}" style="margin-bottom: 40px;">add images</a>
+      <div class="row text-center text-lg-left">
+
+        {% for image in images.all %}
+            <div class="col-lg-3 col-md-4 col-6">
+            <div class="d-block mb-4 h-100">
+                <a href="{{image.image.url}}" >
+                    
+                        <img class="img-fluid img-thumbnail" src="{{image.image.url}}" alt="">
+                        <a href="{% url 'image_delete' pk=image.pk %}" style="margin-top: 10px;"><span class="badge badge-danger">Delete</span></a>
+                    </div>
+                </a>
+            </div>
+        {% empty %}
+            <h2>Sorry, no dates in this list.</h2> 
+        {% endfor %}
+    </div>
+
+</div>
+{% endblock  %}

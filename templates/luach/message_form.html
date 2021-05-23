@@ -1,0 +1,26 @@
+{% extends 'luach/base.html' %}
+{{ form.media }}
+{% block content %}
+    <div class="container">
+        <div class="jumbotron">
+        <br>
+        <br>
+        <br>
+            <form method="POST">
+                {% csrf_token %}
+                
+                {{form.message}}
+                
+                <br>
+                <button type='submit' class='btn btn-success'>save</button>
+                
+
+                
+
+            </form>
+        </div>
+    </div>
+    <script>
+        var editor = new MediumEditor('.editable');
+    </script>
+{% endblock  %}

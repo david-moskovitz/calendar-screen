@@ -1,0 +1,11 @@
+{% extends 'luach/base.html' %}
+{% block content %}
+<div class="container jumbotron">
+    <form method="post">
+        {% csrf_token %}
+        <h4>Are you sure you want to delete {{object}}</h4>
+        <a class="btn btn-success" href="{% url 'date_detail' pk=mydate.pk %}">cancel</a>
+        <input type="submit" class="btn btn-danger" value="delete">
+    </form>
+</div>
+{% endblock %}

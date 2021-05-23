@@ -1,0 +1,17 @@
+{% extends 'luach/base.html' %}
+{% block content %}
+<div class='container' style="margin-top:50px;">
+    <div class="jumbotron">
+        <form enctype="multipart/form-data" method="POST">
+            {% csrf_token %}
+            {{form}}
+            <button type='submit' class='btn btn-success'>save</button>
+            
+            <a class="btn btn-danger" href="{% url 'dashboard' %}">cancel</a>
+            
+        </form>
+        
+    </div>
+</div>
+
+{% endblock  %}

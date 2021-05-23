@@ -1,0 +1,22 @@
+{% extends 'luach/base.html' %}
+{% block content %}
+    <div class='container'>
+        <div class="jumbotron">
+            {% if not form.instance.pk %}
+            <h1>add date</h1>
+            {% else %}
+            <h1>Edit date</h1>
+            {% endif %}
+            <form method="POST">
+                {% csrf_token %}
+                {{form.as_p}}
+                <button type='submit' class='btn btn-success'>save</button>
+                {% if not form.instance.pk %}
+                <a class="btn btn-danger" href="{% url 'calendar' %}">cancel</a>
+                {% else %}
+                <a class="btn btn-danger" href="{% url 'date_detail' pk=mydate.pk %}">cancel</a>
+                {% endif %}
+            </form>
+        </div>
+    </div>
+{% endblock  %}

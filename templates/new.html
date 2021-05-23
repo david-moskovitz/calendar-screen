@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="refresh" content="9000"/>
+    <!--bootstrap css-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+    <!--bootstrap js-->
+    <script type="text/javascript" src="{% static '.js/jquery-3.5.1.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'css/bootstrap-4.5.2-dist/js/bootstrap.bundle.js' %}"></script>
+
+    <title>לוח</title>
+    <link rel="stylesheet" href="{% static 'css/static_css_new.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Suez+One&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="body">
+        <main>
+            <div class="clock">
+    <!--editing this will efect the clock from working-->
+                <svg id="clock" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 352 88" class="dots-on" data-hour="88" data-minute="88" data-second="88">
+                    <g class="dots">
+                        <circle id="dot" cx="114" cy="24" r="4"/>
+                        <use xlink:href="#dot" x="0" y="40" />
+                        <use xlink:href="#dot" x="124" y="0" />
+                        <use xlink:href="#dot" x="124" y="40" />
+                    </g>
+                    <g class="digit digit-6">
+                        <polygon class="12347890" points="352 38 348 42 344 38 344 10 348 6 352 10 352 38"/>
+                        <polygon class="23567890" points="342 0 346 4 342 8 314 8 310 4 314 0 342 0"/>
+                        <polygon class="456890" points="312 38 308 42 304 38 304 10 308 6 312 10 312 38"/>
+                        <polygon class="2345689" points="342 40 346 44 342 48 314 48 310 44 314 40 342 40"/>
+                        <polygon class="2356890" points="342 80 346 84 342 88 314 88 310 84 314 80 342 80"/>
+                        <polygon class="2680" points="312 78 308 82 304 78 304 50 308 46 312 50 312 78"/>
+                        <polygon class="134567890" points="352 78 348 82 344 78 344 50 348 46 352 50 352 78"/>
+                    </g>
+                    <g class="digit digit-5">
+                        <polygon class="12347890" points="296 38 292 42 288 38 288 10 292 6 296 10 296 38"/>
+                        <polygon class="23567890" points="286 0 290 4 286 8 258 8 254 4 258 0 286 0"/>
+                        <polygon class="456890" points="256 38 252 42 248 38 248 10 252 6 256 10 256 38"/>
+                        <polygon class="2345689" points="286 40 290 44 286 48 258 48 254 44 258 40 286 40"/>
+                        <polygon class="2356890" points="286 80 290 84 286 88 258 88 254 84 258 80 286 80"/>
+                        <polygon class="2680" points="256 78 252 82 248 78 248 50 252 46 256 50 256 78"/>
+                        <polygon class="134567890" points="296 78 292 82 288 78 288 50 292 46 296 50 296 78"/>
+                    </g>
+                    <g class="digit digit-4">
+                        <polygon class="12347890" points="228 38 224 42 220 38 220 10 224 6 228 10 228 38"/>
+                        <polygon class="23567890" points="218 0 222 4 218 8 190 8 186 4 190 0 218 0"/>
+                        <polygon class="456890" points="188 38 184 42 180 38 180 10 184 6 188 10 188 38"/>
+                        <polygon class="2345689" points="218 40 222 44 218 48 190 48 186 44 190 40 218 40"/>
+                        <polygon class="2356890" points="218 80 222 84 218 88 190 88 186 84 190 80 218 80"/>
+                        <polygon class="2680" points="188 78 184 82 180 78 180 50 184 46 188 50 188 78"/>
+                        <polygon class="134567890" points="228 78 224 82 220 78 220 50 224 46 228 50 228 78"/>
+                    </g>
+                    <g class="digit digit-3">
+                        <polygon class="12347890" points="172 38 168 42 164 38 164 10 168 6 172 10 172 38"/>
+                        <polygon class="23567890" points="162 0 166 4 162 8 134 8 130 4 134 0 162 0"/>
+                        <polygon class="456890" points="132 38 128 42 124 38 124 10 128 6 132 10 132 38"/>
+                        <polygon class="2345689" points="162 40 166 44 162 48 134 48 130 44 134 40 162 40"/>
+                        <polygon class="2356890" points="162 80 166 84 162 88 134 88 130 84 134 80 162 80"/>
+                        <polygon class="2680" points="132 78 128 82 124 78 124 50 128 46 132 50 132 78"/>
+                        <polygon class="134567890" points="172 78 168 82 164 78 164 50 168 46 172 50 172 78"/>
+                    </g>
+                    <g class="digit digit-2">
+                        <polygon class="12347890" points="104 38 100 42 96 38 96 10 100 6 104 10 104 38"/>
+                        <polygon class="23567890" points="94 0 98 4 94 8 66 8 62 4 66 0 94 0"/>
+                        <polygon class="456890" points="64 38 60 42 56 38 56 10 60 6 64 10 64 38"/>
+                        <polygon class="2345689" points="94 40 98 44 94 48 66 48 62 44 66 40 94 40"/>
+                        <polygon class="2356890" points="94 80 98 84 94 88 66 88 62 84 66 80 94 80"/>
+                        <polygon class="2680" points="64 78 60 82 56 78 56 50 60 46 64 50 64 78"/>
+                        <polygon class="134567890" points="104 78 100 82 96 78 96 50 100 46 104 50 104 78"/>
+                    </g>
+                    <g id="digit" class="digit digit-1">
+                        <polygon class="12347890" points="48 38 44 42 40 38 40 10 44 6 48 10 48 38"/>
+                        <polygon class="23567890" points="38 0 42 4 38 8 10 8 6 4 10 0 38 0"/>
+                        <polygon class="456890" points="8 38 4 42 0 38 0 10 4 6 8 10 8 38"/>
+                        <polygon class="2345689" points="38 40 42 44 38 48 10 48 6 44 10 40 38 40"/>
+                        <polygon class="2356890" points="38 80 42 84 38 88 10 88 6 84 10 80 38 80"/>
+                        <polygon class="2680" points="8 78 4 82 0 78 0 50 4 46 8 50 8 78"/>
+                        <polygon class="134567890" points="48 78 44 82 40 78 40 50 44 46 48 50 48 78"/>
+                    </g>
+                    </svg>
+
+    <!--end uneditable-->
+            </div>
+            <div class="logo">
+                <img class="logo-img" src="{% static 'images/logo.png' %}" alt="">
+            </div>
+            <div class="zmanim">
+                <div class="zmanim-box shadow">
+                    <div class="header-zman">
+                        <h1 style="margin:0px;">{{mydate}}</h1>
+                        <h6>{{mydate.english_date}}</h6>
+                    </div>
+                    <table class="zman-box table">
+                        <tbody>
+                            <tr>
+                                <td class="text-center" style="padding:0px;">בשעה</td>
+                                <td class="text-center" style="padding:0px;">בעוד</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <th class="text-center" style="padding:0px;" scope="row"><h1 id="sof_1">{{mydate.sof_zman_1|time:"H:i"}}</h1></th>
+                                <th><h3 class="countdown" id="countdown_1"></h3></th>
+                                <td style="padding:0px;"><h3>סוף זמן קר''ש</h3><h6>(מג''א)</h6></td>
+                            </tr>
+                            <tr>
+                                <th class="text-center" style="padding:0px;" scope="row"><h1 id="sof_2">{{mydate.sof_zman_2|time:"H:i"}}</h1></th>
+                                <th><h3 class="countdown" id="countdown_2"></h3></th>
+                                <td style="padding:0px;"><h3>סוף זמן קר''ש</h3><h6>(גר''א)</h6></td>
+                            </tr>
+                            <tr>
+                                <th class="text-center" style="padding:0px;" scope="row"><h1 id="sof_3">{{mydate.sof_zman_tefila|time:"H:i"}}</h1></th>
+                                <th><h3 class="countdown" id="countdown_3"></h3></th>
+                                <td style="padding-right:0px;"><h3>סוף זמן תפילה</h3></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="text-side">
+                <div class="text-a shadow">
+                    <p><h1 class="text-center text-b">{{  message|safe|linebreaksbr }}</h1></p>
+                </div>
+            </div>
+            <div class="slider">
+                <div id="carouselExampleSlidesOnly" class="carousel slide slider-box" data-ride="carousel" data-interval="20000">
+                    <div class="carousel-inner">
+
+                        {% for p in dayimage %}
+                            <div class="carousel-item{% if forloop.counter0 == 0 %} active {% endif %}">
+                                <img src="{{ p.images.image.url }}" class="d-block w-100 img-box" alt="...">
+                            </div>
+                        {% empty %}
+                        <div class="carousel-item active">
+                            <img src="{% static 'images/Untitled-1.jpg' %}" class="d-block w-100 img-box" alt="...">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="{% static 'images/Untitled-1.jpg' %}" class="d-block w-100 img-box" alt="...">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="{% static 'images/Untitled-1.jpg' %}" class="d-block w-100 img-box" alt="...">
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+            <div class="ad">
+                <div class="ad-box shadow">
+                    <div class="ad-header">
+                        <h1>בחסות</h1>
+                    </div>
+                    <img class="img-thumbnail ad-logo rounded mx-auto d-block" src="{{add.ad_image.url}}" alt="">
+                </div>
+            </div>
+            <div class="text-bottom">
+                <div id="carouselExampleSlidesOnly" class="carousel slide slider-box" data-ride="carousel">
+                    <div class="carousel-inner">
+                    {% for i in daymazel %}
+                        <div class="carousel-item{% if forloop.counter0 == 0 %} active {% endif %}">
+                            <div class="text-box-big text-center shadow">
+                                <p><h1 class="text-center text-c">{{ i|safe|linebreaksbr }}</h1></p>
+                            </div>
+                        </div>
+                    {% empty %}
+                        <div class="carousel-item active">
+                            <div class="text-box-big shadow">
+                                <div class="text-center"><img style="max-height: 170px;" src="{% static 'images/Ornament.svg' %}" alt=""></div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="{% static '.js/main.js' %}"></script>
+</body>
+</html>

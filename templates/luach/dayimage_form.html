@@ -1,0 +1,66 @@
+{% extends 'luach/base.html' %}
+{% block content %}
+
+    <div class="jumbotron" style="margin-top:50px;">
+        
+        <form method="POST">
+            {% csrf_token %}
+            <div class="row">
+                <div class="col-10 overflow-auto" style="border: 5px solid #B8B8B8;padding:20px;max-height: 750px;">
+                    <select class="image-picker" name="images" required="" id="id_images">
+                        {% for p in form.images %}
+                            {{p}}
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="col" style="border: 5px solid #B8B8B8;padding:20px;">
+                    <hr>
+                    <p>keep till {{form.keep_till}}</p>
+                    <hr>
+                    <p>keep for every year{{form.keep_every_year}}</p>
+                    <hr>
+                    <button type='submit' class='btn btn-success'>save</button>
+                    
+                    <a class="btn btn-danger" href="{% url 'date_detail' pk=date.pk %}">cancel</a>
+                </div>            
+            </div>
+            
+            
+            
+        </form>
+        
+    </div>
+
+    <script>
+        var option = document.getElementsByTagName("option");
+       
+        for(var i = 1; i < option.length; i++){
+            option[i].setAttribute('data-img-src', 'https://storage.googleapis.com/luach-belz/'+option[i].innerHTML);
+        }
+        
+        $('.image-picker').imagepicker({
+            hide_select: true,
+            show_label: true,
+        });
+    </script>
+    <script>
+        var text = document.getElementsByTagName('p');
+        for(var a = 0; a < text.length; a++){
+            var b = text[a].innerHTML.replace('images/','');
+            text[a].innerHTML = (b);
+        }
+        
+    </script>
+    <script>
+        var img = document.getElementsByClassName('image_picker_image');
+
+        for(var a = 0; a < img.length; a++){
+            img[a].style.maxWidth = "200px";
+        }
+        
+        
+        var checkbox = document.getElementById('id_keep_every_year');
+        checkbox.style.margin = '5px';
+
+    </script>
+{% endblock  %}

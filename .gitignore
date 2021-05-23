@@ -1,0 +1,5 @@
+app.yaml
+cloud_sql_proxy.exe
+credentials.json
+db.sqlite3
+static

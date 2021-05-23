@@ -1,0 +1,25 @@
+{% extends 'luach/base.html' %}
+{% block content %}
+<div class="container">
+    <div class="jumbotron">
+        <div class="row text-center text-lg-left">
+            {% for date in mydate %}
+                <div class="col-lg-3 col-md-4 col-6">
+                    <div class="d-block mb-4 h-100">
+                        <div class="card bg-light mb-3" style="max-width: 18rem;">
+                            <div class="card-header"><h5><b>{{ date.hebrew_date }}</b></h5></div>
+                            <div class="card-body">
+                                <h5 class="card-title">{{ date.english_date }}</h5>
+                                <a class="btn btn-success btn-sm" href="{% url 'date_detail' pk=date.pk %}">go</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+            {% empty %}
+                <h2>Sorry, no dates in this list.</h2>    
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock  %}

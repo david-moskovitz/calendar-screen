@@ -1,0 +1,20 @@
+
+{% extends "admin/base_site.html" %}
+{% load i18n %}
+
+
+
+{% block nav-sidebar %}{% endblock %}
+
+{% block content %}
+
+<p><h1>Thanks for spending some quality time with the Web site today.</h1></p>
+<br>
+<br>
+<p><h2>Usefull links</h2></p>
+<p><a href="{% url 'login' %}">Log in again</a></p>
+
+<p><a href="{% url 'home' %}">screen</a></p>
+
+
+{% endblock %}

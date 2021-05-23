@@ -1,0 +1,28 @@
+{% extends 'luach/base.html' %}
+{% block content %}
+
+<div class="container jumbotron text-center">
+    <h2>Please Login</h2>
+    <hr>
+    
+    {% if form.errors %}
+        <p>Your username or password didn't match! Please try again</p>
+    
+    
+    {% endif %}
+
+    <form class="form-group" action="{% url 'login' %}" method="POST">
+        {% csrf_token %}
+        <h4>{{ form.username.label_tag }}</h4>
+        {{ form.username }}
+        
+        <h4>{{ form.password.label_tag }}</h4>
+        {{ form.password }}
+        <hr>
+        <button type="submit" class="btn btn-primary">login</button>
+            <!--<input type="hidden" class="next" value="{{next}}">-->
+    </form>
+
+</div>
+
+{% endblock  %}

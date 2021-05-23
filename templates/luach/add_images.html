@@ -1,0 +1,74 @@
+{% extends 'luach/base.html' %}
+{% block content %}
+<div class="container">
+    <div class="jumbotron">
+
+        <label>Add Images</label>
+        <br>
+        <div class="row">
+            <div class="col">
+                <input type="file" multiple>
+            </div>
+            <div class="col">
+            </div>
+        </div>
+        <button type="submit" id="saveBtn" class="btn btn-success mt-4">Save</button>
+        <a class="btn btn-danger mt-4" href="{% url 'images' %}">cancel</a>
+    </div>
+</div>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var files = []
+        FilePond.registerPlugin(FilePondPluginFileValidateSize);
+        FilePond.registerPlugin(FilePondPluginFileValidateType);
+        FilePond.setOptions({
+            allowMultiple:true,
+            maxFiles:10,
+            maxFileSize: '10MB'
+        })
+        const inputElement = document.querySelector('input[type="file"]');
+        const pond = FilePond.create( inputElement, {
+            acceptedFileTypes:['image/png', 'image/jpeg','image/jpg'],
+            onaddfile: (err, fileItem) => {
+                if (!err) {
+                files.push(fileItem.file)
+                }
+                console.log(files)
+            },
+            onremovefile: (err, fileItem) => {
+                const index = files.indexOf(fileItem.file)
+                if (index > -1) {
+                    files.splice(index, 1)
+                }
+                console.log(files)
+            }
+        } );
+
+        var formData = new FormData();
+        $(document).on('click', '#saveBtn', function(e) {
+            formData.append('length', files.length)
+            for (var i = 0; i < files.length; i++) {
+                formData.append('images' + i, files[i])
+            }
+            formData.append('csrfmiddlewaretoken', '{{ csrf_token }}')
+
+            $.ajax({
+                type: 'POST',
+                url: '{% url "import_images" %}',
+                data: formData,
+                cache: false,
+                processData: false,
+                contentType: false,
+                enctype: 'multipart/form-data',
+                success: function (){
+                    //alert('The post has been created!')
+                    window.location.href = "{% url 'images' %}";
+                },
+                error: function(xhr, errmsg, err) {
+                    console.log(xhr.status + ":" + xhr.responseText)
+                }
+            })
+        })
+    })
+</script>
+{% endblock  %}

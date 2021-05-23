@@ -1,0 +1,13 @@
+{% extends 'luach/base.html' %}
+{% block content %}
+    <div class="container">
+        <div class="jumbotron" style="padding-top:100px;">
+            
+            <p>{{mazeltov.mazel_tov}}</p>
+
+            <a class="btn btn-warning" href="{% url 'edit_mazel' pk=mazeltov.pk %}">edit</a>
+            <a class="btn btn-danger" href="{% url 'mazel_delete' pk=mazeltov.pk %}">delete</a>
+        </div>
+    </div>
+
+{% endblock  %}

@@ -1,0 +1,9 @@
+{% extends 'luach/base.html' %}
+{% block content %}
+<div class="container jumbotron">
+        <P>{{object}}</P>
+        <h4>Are you sure you want to delete this mazel tov</h4>
+        
+        <a class='btn btn-danger' href="{% url 'dayimage_delete' pk=dayimage.pk %}">delete</a>
+</div>
+{% endblock %}
